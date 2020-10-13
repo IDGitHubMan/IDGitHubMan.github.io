@@ -24,15 +24,15 @@
 }
 
 #pySound{
-    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/SoundModulation.png");
+    background-image: url("SoundModulation.png");
 }
 
 #processingRain{
-    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/ProcessingRainPreview.png");
+    background-image: url("ProcessingRainPreview.png");
 }
 
 #requiem{
-    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/RequiemPreview.png");
+    background-image: url("RequiemPreview.png");
 }
 
 .backgroundBuffer {
