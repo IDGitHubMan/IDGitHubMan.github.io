@@ -6,4 +6,47 @@
 .displayRoll{
     display: flex;
     justify-content: space-around;
+    text-align: center;
+}
+.cellPreview{
+    width: 33vw;
+    height: 60vh;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.cellPreview:hover .backgroundBuffer{
+    opacity: 1;
+}
+
+.preview{
+    width: 33vw;
+}
+
+#pySound{
+    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/SoundModulation.png");
+}
+
+#processingRain{
+    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/ProcessingRainPreview.png");
+}
+
+#requiem{
+    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/RequiemPreview.png");
+}
+
+.backgroundBuffer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
 }
