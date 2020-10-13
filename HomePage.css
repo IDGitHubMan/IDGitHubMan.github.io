@@ -13,14 +13,30 @@
     position: relative;
     background-repeat: no-repeat;
 }
+.preview{
+    width: 33vw;
+}
+
+@media only screen and (max-width:950px){
+    .displayRoll{
+        display: block;
+    }
+
+    .cellPreview{
+        width: 80vw;
+        position: relative;
+        background-repeat: no-repeat;
+    }
+
+    .preview{
+        width: 80vw;
+    }
+}
 
 .cellPreview:hover .backgroundBuffer{
     opacity: 1;
 }
 
-.preview{
-    width: 33vw;
-}
 
 #pySound{
     background-image: url("SoundModulation.png");
