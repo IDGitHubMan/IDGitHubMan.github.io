@@ -12,6 +12,7 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
+  var maxwidth = window.innerWidth;
   var i;
   var slides = document.getElementsByClassName("trio");
   if (n > slides.length) {slideIndex = 1}
@@ -19,6 +20,10 @@ function showSlides(n) {
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
   }
-  slides[slideIndex-1].style.display = "flex";
-  dots[slideIndex-1].className += " active";
+  if (maxwidth <= 950) {
+    slides[slideIndex - 1].style.display = "block";
+  }
+  else {
+    slides[slideIndex - 1].style.display = "flex";
+  }
 }

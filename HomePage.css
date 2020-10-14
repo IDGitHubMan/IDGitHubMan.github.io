@@ -24,6 +24,10 @@
         display: block;
     }
 
+    html{
+        max-width: 950px;
+    }
+
     .cellPreview{
         width: 80vw;
         position: relative;
@@ -65,27 +69,27 @@
 }
 
 #desmos{
-    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/Desmos.png")
+    background-image: url("https://IDGitHubMan.github.io/Images/Desmos.png")
 }
 
 #polySequence{
-    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/Polygonate.png");
+    background-image: url("https://IDGitHubMan.github.io/Images/Polygonate.png");
 }
 
 #hailSequence{
-    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/HailPreview.png");
+    background-image: url("https://IDGitHubMan.github.io/Images/HailPreview.png");
 }
 
 #Distribution{
-    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/Random.png");
+    background-image: url("https://IDGitHubMan.github.io/Images/Random.png");
 }
 
 #Enigma{
-    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/Enigma.png");
+    background-image: url("https://IDGitHubMan.github.io/Images/Enigma.png");
 }
 
 #Betrayal{
-    background-image: url("/Users/idesrosiers/IDGitHubMan.github.io/Images/Betrayal.png")
+    background-image: url("https://IDGitHubMan.github.io/Images/Betrayal.png")
 }
 
 .backgroundBuffer {
