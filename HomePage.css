@@ -19,13 +19,9 @@
 
 
 
-@media only screen and (max-width:720px){
+@media only screen and (max-width:750px){
     .trio{
         display: block;
-    }
-
-    html{
-        max-width: 950px;
     }
 
     .cellPreview{
