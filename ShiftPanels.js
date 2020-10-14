@@ -1,4 +1,5 @@
 var slideIndex = 1;
+var maxwidth;
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -10,11 +11,15 @@ function plusSlides(n) {
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
+
 window.addEventListener('resize', setWidth);
 
 function setWidth() {
-  window.addEventListener('resize', functionName);
+  maxwidth = window.outerWidth;
+  showSlides(slideIndex);
 }
+
+
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("trio");
