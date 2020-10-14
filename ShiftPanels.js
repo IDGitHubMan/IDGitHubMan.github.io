@@ -1,5 +1,5 @@
 var slideIndex = 1;
-var maxwidth;
+var maxwidth = window.outerWidth;
 showSlides(slideIndex);
 
 // Next/previous controls
