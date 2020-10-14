@@ -10,9 +10,12 @@ function plusSlides(n) {
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
+window.addEventListener('resize', setWidth);
 
+function setWidth() {
+  window.addEventListener('resize', functionName);
+}
 function showSlides(n) {
-  var maxwidth = window.innerWidth;
   var i;
   var slides = document.getElementsByClassName("trio");
   if (n > slides.length) {slideIndex = 1}
