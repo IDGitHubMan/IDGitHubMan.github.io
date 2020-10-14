@@ -41,51 +41,51 @@
 
 
 #pySound{
-    background-image: url("SoundModulation.png");
+    background-image: url("/Users/IDGitHubMan.github.io/Images/SoundModulation.png");
 }
 
 #processingRain{
-    background-image: url("ProcessingRainPreview.png");
+    background-image: url("/Users/IDGitHubMan.github.io/Images/ProcessingRainPreview.png");
 }
 
 #requiem{
-    background-image: url("RequiemPreview.png");
+    background-image: url("/Users/IDGitHubMan.github.io/Images/RequiemPreview.png");
 }
 
 #searchingTruth{
-    background-image: url("SearchingForTruth.png");
+    background-image: url("/Users/IDGitHubMan.github.io/Images/SearchingForTruth.png");
 }
 
 #twoWhos{
-    background-image: url("2Whos.png");
+    background-image: url("/Users/IDGitHubMan.github.io/Images/2Whos.png");
 }
 
 #unityProj{
-    background-image: url("Homeward.png");
+    background-image: url("/Users/IDGitHubMan.github.io/Images/Homeward.png");
 }
 
 #desmos{
-    background-image: url("Desmos.png")
+    background-image: url("/Users/IDGitHubMan.github.io/Images/Desmos.png")
 }
 
 #polySequence{
-    background-image: url("Polygonate.png");
+    background-image: url("/Users/IDGitHubMan.github.io/Images/Polygonate.png");
 }
 
 #hailSequence{
-    background-image: url("HailPreview.png");
+    background-image: url("/Users/IDGitHubMan.github.io/Images/HailPreview.png");
 }
 
 #Distribution{
-    background-image: url("Random.png");
+    background-image: url("/Users/IDGitHubMan.github.io/Images/Random.png");
 }
 
 #Enigma{
-    background-image: url("Enigma.png");
+    background-image: url("/Users/IDGitHubMan.github.io/Images/Enigma.png");
 }
 
 #Betrayal{
-    background-image: url("Betrayal.png")
+    background-image: url("/Users/IDGitHubMan.github.io/Images/Betrayal.png")
 }
 
 .backgroundBuffer {
@@ -144,4 +144,5 @@
 
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
+  color: white;
 }
