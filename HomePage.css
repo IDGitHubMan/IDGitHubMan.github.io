@@ -2,14 +2,14 @@
     text-align: center;
 }
 
-.displayRoll{
-    display: flex;
+.trio{
+    display: none;
     justify-content: space-around;
     text-align: center;
 }
 .cellPreview{
     width: 33vw;
-    height: 60vh;
+    height: 400px;
     position: relative;
     background-repeat: no-repeat;
 }
@@ -17,8 +17,10 @@
     width: 33vw;
 }
 
+
+
 @media only screen and (max-width:950px){
-    .displayRoll{
+    .trio{
         display: block;
     }
 
@@ -50,6 +52,42 @@
     background-image: url("RequiemPreview.png");
 }
 
+#searchingTruth{
+    background-image: url("SearchingForTruth.png");
+}
+
+#twoWhos{
+    background-image: url("2Whos.png");
+}
+
+#unityProj{
+    background-image: url("Homeward.png");
+}
+
+#desmos{
+    background-image: url("Desmos.png")
+}
+
+#polySequence{
+    background-image: url("PolygonatePreview.png");
+}
+
+#hailSequence{
+    background-image: url("HailPreview.png");
+}
+
+#Distribution{
+    background-image: url("DistributionPreview.png");
+}
+
+#Enigma{
+    background-image: url("Enigma.png");
+}
+
+#Betrayal{
+    background-image: url("Betrayal.png")
+}
+
 .backgroundBuffer {
   position: absolute;
   top: 0;
@@ -64,4 +102,46 @@
   color: white;
   text-align: center;
   vertical-align: middle;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  color: black;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
 }
