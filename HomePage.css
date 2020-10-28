@@ -1,3 +1,11 @@
+h1,h2,a{
+    color: rgb(10, 30, 216);
+}
+
+p{
+    color: rgb(00, 140, 216);
+}
+
 .Head{
     text-align: center;
 }
@@ -27,6 +35,10 @@
 .navBar{
     display: flex;
     justify-content: space-around;
+    background-color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
 }
 
 .top{
@@ -34,16 +46,47 @@
 }
 
 .navDropdown{
-
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
 .navButton{
-    
+    height: 20px;
+    width: 1vw;
+}
+
+.navButton:hover .navDropdown {display: block;}
+
+.dropLink{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropBtn{
+    padding: 8px;
 }
 
 .foot{
     display: flex;
     justify-content: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+.activePage{
+    color: rgb(00, 140, 216);
+}
+
+.overlayText{
+    color: white;
 }
 
 @media only screen and (max-width:750px){
