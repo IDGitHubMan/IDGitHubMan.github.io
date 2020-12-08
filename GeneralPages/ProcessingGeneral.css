@@ -104,6 +104,12 @@ a:visited{
     color: rgb(00, 140, 216);
 }
 
+.links{
+    display: flex;
+    flex-direction: column;
+    color: rgb(00, 140, 216);
+}
+
 @media only screen and (max-width:750px){
     .trio{
     display: none;
