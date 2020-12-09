@@ -140,49 +140,23 @@ a:visited{
     background-image: url("https://IDGitHubMan.github.io/Images/SoundModulation.png");
 }
 
-#processingRain{
-    background-image: url("https://IDGitHubMan.github.io/Images/ProcessingRainPreview.png");
-}
-
-#requiem{
-    background-image: url("https://IDGitHubMan.github.io/Images/RequiemPreview.png");
-}
-
-#searchingTruth{
-    background-image: url("https://IDGitHubMan.github.io/Images/SearchingForTruth.png");
-}
-
-#twoWhos{
-    background-image: url("https://IDGitHubMan.github.io/Images/2Whos.png");
-}
-
-#unityProj{
-    background-image: url("https://IDGitHubMan.github.io/Images/Homeward.png");
-}
-
-#desmos{
-    background-image: url("https://IDGitHubMan.github.io/Images/Desmos.png")
+#pyCode{
+    background-image: url("https://IDGitHubMan.github.io/Images/300px-ROT13.png");
 }
 
 #polySequence{
     background-image: url("https://IDGitHubMan.github.io/Images/Polygonate.png");
 }
 
-#hailSequence{
-    background-image: url("https://IDGitHubMan.github.io/Images/HailPreview.png");
+#minigames{
+    background-image: url("https://IDGitHubMan.github.io/Images/Battleship.png");
 }
 
-#Distribution{
-    background-image: url("https://IDGitHubMan.github.io/Images/Random.png");
+#turtle{
+    background-image: url("https://IDGitHubMan.github.io/Images/Turtle.png");
 }
 
-#Enigma{
-    background-image: url("https://IDGitHubMan.github.io/Images/Enigma.png");
-}
-
-#Betrayal{
-    background-image: url("https://IDGitHubMan.github.io/Images/Betrayal.png")
-}
+#tools{}
 
 .backgroundBuffer {
   position: absolute;
