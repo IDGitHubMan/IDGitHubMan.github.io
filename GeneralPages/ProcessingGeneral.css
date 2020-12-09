@@ -79,7 +79,7 @@ p{
 
 .foot{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 a{
@@ -146,6 +146,18 @@ a:visited{
 
 #node{
     background-image: url("https://IDGitHubMan.github.io/Images/Nodes.png");
+}
+
+#miniKeyboard{
+    background-image: url("https://IDGitHubMan.github.io/Images/SineKeyboard.png");
+}
+
+#SISAR{
+    background-image: url("https://IDGitHubMan.github.io/Images/SISAR.png");
+}
+
+#pianoRoll{
+    background-image: url("https://IDGitHubMan.github.io/Images/PianoRoll.png");
 }
 
 .backgroundBuffer {
