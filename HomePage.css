@@ -180,6 +180,55 @@ a:visited{
     background-image: url("https://IDGitHubMan.github.io/Images/Betrayal.png")
 }
 
+#rain{
+    background-image: url("https://IDGitHubMan.github.io/Images/ProcessingRainPreview.png");
+}
+
+#distribution{
+    background-image: url("https://IDGitHubMan.github.io/Images/Random.png");
+}
+
+#node{
+    background-image: url("https://IDGitHubMan.github.io/Images/Nodes.png");
+}
+
+#miniKeyboard{
+    background-image: url("https://IDGitHubMan.github.io/Images/SineKeyboard.png");
+}
+
+#SISAR{
+    background-image: url("https://IDGitHubMan.github.io/Images/SISAR.png");
+}
+
+#pianoRoll{
+    background-image: url("https://IDGitHubMan.github.io/Images/PianoRoll.png");
+}
+
+#pySound{
+    background-image: url("https://IDGitHubMan.github.io/Images/SoundModulation.png");
+}
+
+#pyCode{
+    background-image: url("https://IDGitHubMan.github.io/Images/300px-ROT13.png");
+}
+
+#polySequence{
+    background-image: url("https://IDGitHubMan.github.io/Images/Polygonate.png");
+}
+
+#minigames{
+    background-image: url("https://IDGitHubMan.github.io/Images/Battleship.png");
+}
+
+#turtle{
+    background-image: url("https://IDGitHubMan.github.io/Images/Turtle.png");
+}
+
+#tools{
+    
+}
+
+
 .backgroundBuffer {
   position: absolute;
   top: 0;
