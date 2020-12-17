@@ -10,6 +10,10 @@ p{
     text-align: center;
 }
 
+.headLink{
+    font-size: 32pt;
+}
+
 .trio{
     display: none;
     justify-content: space-around;
