@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="Music.css">
+        <meta name="author" content="Isaiah Desrosiers">
+        <meta name="description" content="The homepage for my Github Pages project.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jquery-3.5.1.min.js"></script>
+    </head>
+    <body>
         <div class="top">
             <a href="https://idgithubman.github.io/index.html"><b class="headLink">Isaiah Desrosiers</b></a>
         </div>
@@ -39,19 +46,48 @@
                 </div>
             </div>
         </div>
-        <div class="head">
+        <div class="Head">
             <h2>Music</h2>
-            <p>I have created multiple songs, mainly of two types, either a classical composition worked on <a href="https://flat.io/">Flat</a> or <a href="https://musescore.com/">Musescore</a>. These are more instrumental and compositional pieces. The other variety is done on Garageband, and is more electronic.</p>
+            <p>I have created multiple songs, mainly of two types, either a classical composition worked on <a
+                    href="https://flat.io/">Flat</a> or <a href="https://musescore.com/">Musescore</a>. These are more
+                instrumental and compositional pieces. The other variety is done on Garageband, and is more electronic.</p>
         </div>
         <div class="body">
             <div class="musescore">
-                <h2>Musescore</h2>
-                <p>Musescore is a free score editing and writing software available on both Mac and windows, and hosts a large community of musicians and creators.</p>
+                <h3>Musescore</h3>
+                <p>Musescore is a free score editing and writing software available on both Mac and windows, and hosts a large
+                    community of musicians and creators.</p>
             </div>
             <div class="gBand">
-                <h2>Garageband</h2>
-                <p>Garageband is a basic basic music studio software that focuses heavily on track management and control that comes free with most Apple devices.</p>
+                <h3>Garageband</h3>
+                <p>Garageband is a basic basic music studio software that focuses heavily on track management and control that
+                    comes free with most Apple devices.</p>
             </div>
+            <div class="player">
+                <a class="prev" onclick="prevCSong()">&#10094;</a>
+                <a class="play" onclick="playCSong()">&#9199;</a>
+                <a class="stop" onclick="">&#9632;</a>
+                <input type="range" class="time">
+                <p class="timeStamp">0:00</p>
+                <audio id="compositionPlayer">
+                    <source src="" id="cSource">
+                </audio>
+                <a class="volSymbol" onclick="">&#128266;</a>
+                <a class="next" onclick="nextCSong()">&#10095;</a>
+            </div>
+            <div class="player">
+                <a class="prev" onclick="prevGSong()">&#10094;</a>
+                <a class="play" onclick="playGSong()">&#9199;</a>
+                <a class="stop" onclick="">&#9632;</a>
+                <input type="range" class="time">
+                <p class="timeStamp">0:00</p>
+                <audio id="garagePlayer">
+                    <source src="" id="gSource">
+                </audio>
+                <a class="volSymbol" onclick="">&#128266;</a>
+                <a class="next" onclick="nextGSong()">&#10095;</a>
+            </div>
+            <script src="https://IDGitHubMan.github.io/Player.js"></script>
         </div>
-    </head>
+    </body>
 </html>

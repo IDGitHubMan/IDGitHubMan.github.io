@@ -1,0 +1,61 @@
+h1,h2,h3,a{
+    color: rgb(10, 30, 216);
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    color: rgb(00, 140, 216);
+}
+
+.navBar{
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+.navDropdown{
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.navButton{
+    height: 20px;
+    width: 1vw;
+}
+
+.navButton:hover .navDropdown {display: block;}
+
+.dropLink{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropBtn{
+    padding: 8px;
+}
+
+.Head{
+    text-align: center;
+}
+
+.player{
+    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+
+.songSrc{
+    display: none;
+}
