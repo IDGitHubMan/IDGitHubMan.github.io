@@ -9,6 +9,13 @@ a{
 p{
     color: rgb(00, 140, 216);
 }
+.top{
+    text-align: center;
+}
+
+.activePage{
+    color: rgb(00, 140, 216);
+}
 
 .headLink{
     font-size: 32pt;
@@ -62,4 +69,8 @@ p{
 
 .songSrc{
     display: none;
+}
+
+.prev, .play, .stop, .next{
+    cursor: pointer;
 }

@@ -9,10 +9,19 @@ var gPlaying = false;
 chooseCSong(cSongIndex);
 chooseGSong(gSongIndex);
 
-var compositionPlayer = document.getElementById("compositionPlayer");
-var cSource = document.getElementById("cSource")
-var garagePlayer = document.getElementById("garagePlayer");
-var gSource = document.getElementById("gSource");
+var compositionPlayer;
+var cSource;
+var garagePlayer;
+var gSource;
+
+window.onload = function () {
+    compositionPlayer = document.getElementById("compositionPlayer");
+    cSource = document.getElementById("cSource");
+    console.log(compositionPlayer);
+    console.log(cSource);
+    console.log(garagePlayer);
+    console.log(gSource);
+}
 
 function nextCSong() {
     chooseCSong(cSongIndex += 1);
@@ -97,6 +106,7 @@ function playCSong() {
         compositionPlayer.pause();
     }
     else {
+        compositionPlayer.load();
         compositionPlayer.play();
     }
     cPlaying = !cPlaying
@@ -107,6 +117,7 @@ function playGSong() {
         garagePlayer.pause();
     }
     else {
+        garagePlayer.load();
         garagePlayer.play();
     }
     gPlaying = !gPlaying;
