@@ -160,7 +160,8 @@ class OneDCellMachine{
   var elementary;
   var y;
   function setup() {
-    createCanvas(800,800);
+    var myCanvas = createCanvas(winWidth, winHeight);
+    myCanvas.parent("1DCAview");
     elementary = new OneDCellMachine();
     y = 0;
     rule111 = createCheckbox('111',false);
