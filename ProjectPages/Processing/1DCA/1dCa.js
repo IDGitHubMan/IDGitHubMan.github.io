@@ -160,7 +160,7 @@ class OneDCellMachine{
   var elementary;
   var y;
   function setup() {
-    var myCanvas = createCanvas(winWidth, winHeight);
+    var myCanvas = createCanvas(800, 800);
     myCanvas.parent("1DCAview");
     elementary = new OneDCellMachine();
     y = 0;
