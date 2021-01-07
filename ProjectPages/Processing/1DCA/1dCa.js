@@ -145,6 +145,16 @@ class OneDCellMachine{
         rect(i*this.size,y*this.size,this.size,this.size)
       }
     }
+    reset(c1,c2,c3,c4,c5,c6,c7,c8){
+      this.ruleset[0] = c1.isChecked;
+      this.ruleset[1] = c2.isChecked;
+      this.ruleset[2] = c3.isChecked;
+      this.ruleset[3] = c4.isChecked;
+      this.ruleset[4] = c5.isChecked;
+      this.ruleset[5] = c6.isChecked;
+      this.ruleset[6] = c7.isChecked;
+      this.ruleset[7] = c8.isChecked;
+    }
   }
   
   var elementary;
@@ -153,6 +163,16 @@ class OneDCellMachine{
     createCanvas(windowWidth,windowHeight);
     elementary = new OneDCellMachine();
     y = 0;
+    rule111 = createCheckbox('111',false);
+    rule110 = createCheckbox('110',true);
+    rule101 = createCheckbox('101',false);
+    rule100 = createCheckbox('100',true);
+    rule011 = createCheckbox('011',true);
+    rule010 = createCheckbox('010',false);
+    rule001 = createCheckbox('001',true);
+    rule000 = createCheckbox('000',false);
+    button = createButton('RUN');
+    button.mousePressed(elementary.reset);
   }
   
   function draw() {
