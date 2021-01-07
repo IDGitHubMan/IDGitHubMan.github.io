@@ -151,9 +151,6 @@ class OneDCellMachine{
   var y;
   function setup() {
     createCanvas(windowWidth,windowHeight);
-    createCheckbox('111',false)
-    createCheckbox('110',true)
-    createCheckbox('101',false)
     elementary = new OneDCellMachine();
     y = 0;
   }
