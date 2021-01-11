@@ -157,9 +157,6 @@ class OneDCellMachine{
     }
 }
   
-
-
-
 var elementary;
 var y;
 var lastRuleSimp = true;
@@ -184,22 +181,22 @@ function draw() {
 function simpRun(){
   if (!lastRuleSimp){
     y = 0;
-  }
-  var c1 = document.querySelector("#c111");
-  var c2 = document.querySelector("#c110");
-  var c3 = document.querySelector("#c101");
-  var c4 = document.querySelector("#c100");
-  var c5 = document.querySelector("#c011");
-  var c6 = document.querySelector("#c010");
-  var c7 = document.querySelector("#c001");
-  var c8 = document.querySelector("#c000");
-  elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
-  for (let i = 0; i < elementary.states.length; i++){
-    if (i==width/elementary.size/2){
-      elementary.states[i] = true;
-    }
-    else{
-      elementary.states[i] = false;
+    var c1 = document.querySelector("#c111");
+    var c2 = document.querySelector("#c110");
+    var c3 = document.querySelector("#c101");
+    var c4 = document.querySelector("#c100");
+    var c5 = document.querySelector("#c011");
+    var c6 = document.querySelector("#c010");
+    var c7 = document.querySelector("#c001");
+    var c8 = document.querySelector("#c000");
+    elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
+    for (let i = 0; i < elementary.states.length; i++){
+      if (i==width/elementary.size/2){
+        elementary.states[i] = true;
+      }
+      else{
+        elementary.states[i] = false;
+      }
     }
   }
   loop()
@@ -209,31 +206,31 @@ function simpRun(){
 function randRun(){
   if (lastRuleSimp){
     y = 0;
-  }
-  var c1 = document.querySelector("#c111");
-  var c2 = document.querySelector("#c110");
-  var c3 = document.querySelector("#c101");
-  var c4 = document.querySelector("#c100");
-  var c5 = document.querySelector("#c011");
-  var c6 = document.querySelector("#c010");
-  var c7 = document.querySelector("#c001");
-  var c8 = document.querySelector("#c000");
-  elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
-  for (let i = 0; i < elementary.states.length; i++){
-    if (i==width/elementary.size/2){
-      elementary.states[i] = true;
+    var c1 = document.querySelector("#c111");
+    var c2 = document.querySelector("#c110");
+    var c3 = document.querySelector("#c101");
+    var c4 = document.querySelector("#c100");
+    var c5 = document.querySelector("#c011");
+    var c6 = document.querySelector("#c010");
+    var c7 = document.querySelector("#c001");
+    var c8 = document.querySelector("#c000");
+    elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
+    for (let i = 0; i < elementary.states.length; i++){
+      if (i==width/elementary.size/2){
+        elementary.states[i] = true;
+      }
+      else{
+        elementary.states[i] = false;
+      }
     }
-    else{
-      elementary.states[i] = false;
-    }
-  }
-  for (let i = 0; i < elementary.states.length; i++){
-    let bool = int(random(2)*2-1)
-    if (bool==1){
-      elementary.states[i] = true;
-    }
-    else{
-      elementary.states[i] = false;
+    for (let i = 0; i < elementary.states.length; i++){
+      let bool = int(random(2)*2-1)
+      if (bool==1){
+        elementary.states[i] = true;
+      }
+      else{
+        elementary.states[i] = false;
+      }
     }
   }
   loop()
