@@ -230,6 +230,7 @@ function randRun(){
       elementary.states[i] = false;
     }
   }
+  loop()
 }
 
 function iterate(){
