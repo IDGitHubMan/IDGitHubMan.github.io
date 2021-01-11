@@ -11,8 +11,47 @@
     <body>
         <script language="javascript" type="text/javascript" src="https://IDGitHubMan.github.io/ProjectPages/Processing/1DCA/1dCa.js"></script>
         <h1>Hello?</h1>
-        <div>
-            <canvas id="1DCAview" width="1000" height="1000"></canvas>
+        <div id="controller">
+            <div id="ruleset">
+                <div class="rule">
+                    <input type="checkbox" id="c111" name="c111" value="111">
+                    <label for="c111">111</label>
+                </div>
+                <div class="rule">
+                    <input type="checkbox" id="c110" name="c110" value="110" checked>
+                    <label for="c110">110</label>
+                </div>
+                <div class="rule">
+                    <input type="checkbox" id="c101" name="c101" value="101">
+                    <label for="c101">101</label>
+                </div>
+                <div class="rule">
+                    <input type="checkbox" id="c100" name="c100" value="100" checked>
+                    <label for="c111">100</label>
+                </div>
+                <div class="rule">
+                    <input type="checkbox" id="c011" name="c011" value="011" checked>
+                    <label for="c011">011</label>
+                </div>
+                <div class="rule">
+                    <input type="checkbox" id="c010" name="c010" value="010">
+                    <label for="c010">010</label>
+                </div>
+                <div class="rule">
+                    <input type="checkbox" id="c001" name="c001" value="001" checked>
+                    <label for="c001">001</label>
+                </div>
+                <div class="rule">
+                    <input type="checkbox" id="c000" name="c000" value="000">
+                    <label for="c000">000</label>
+                </div>
+            </div>
+            <div id="animation">
+                <input type="button" value="STEP" onclick="step()">
+                <input type="button" value="SIMPLERUN" onclick="simpRun()">
+                <input type="button" value="RANDOMRUN" onclick="randRun()">
+                <input type="button" value="STOP" onclick="stop()">
+            </div>
         </div>
     </body>
 </html>

@@ -160,27 +160,68 @@ class OneDCellMachine{
   var elementary;
   var y;
   function setup() {
-    var myCanvas = createCanvas(800, 800);
-    myCanvas.parent("1DCAview");
+    createCanvas(800, 800);
+    parent("1DCAview");
     elementary = new OneDCellMachine();
     y = 0;
-    rule111 = createCheckbox('111',false);
-    rule110 = createCheckbox('110',true);
-    rule101 = createCheckbox('101',false);
-    rule100 = createCheckbox('100',true);
-    rule011 = createCheckbox('011',true);
-    rule010 = createCheckbox('010',false);
-    rule001 = createCheckbox('001',true);
-    rule000 = createCheckbox('000',false);
-    button = createButton('RUN');
-    button.mousePressed(elementary.reset);
   }
   
   function draw() {
     elementary.update(y);
     y++
-    if (y*elementary.size>height){
+    if (y*elementary.size>=height){
       y = 0;
       noLoop()
     }
+  }
+
+  function simpRun(){
+    for (let i = 0; i < elementary.states.length; i++){
+      if (i==width/elementary.size/2){
+        elementary.states[i] = true;
+      }
+      else{
+        elementary.states[i] = false;
+      }
+    }
+    loop()
+
+  }
+
+  function randRun(){
+    for (let i = 0; i < elementary.states.length; i++){
+      if (i==width/elementary.size/2){
+        elementary.states[i] = true;
+      }
+      else{
+        elementary.states[i] = false;
+      }
+    }
+    for (let i = 0; i < elementary.states.length; i++){
+      let bool = int(random(2)*2-1)
+      if (bool==1){
+        elementary.states[i] = true;
+      }
+      else{
+        elementary.states[i] = false;
+      }
+    }
+  }
+
+  function stop(){
+    noLoop()
+  }
+
+  function step(){
+    if (y*elementary.size>=height){
+      for (let i = 0; i < elementary.states.length; i++){
+        if (i==width/elementary.size/2){
+          elementary.states[i] = true;
+        }
+        else{
+          elementary.states[i] = false;
+        }
+      }
+    }
+    redraw()
   }
