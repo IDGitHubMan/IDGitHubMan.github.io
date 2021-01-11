@@ -180,7 +180,8 @@ function draw() {
   }
 }
 
-window.onload = function(){
+function simpRun(){
+  y = 0;
   var c1 = document.querySelector("#c111");
   var c2 = document.querySelector("#c110");
   var c3 = document.querySelector("#c101");
@@ -189,9 +190,6 @@ window.onload = function(){
   var c6 = document.querySelector("#c010");
   var c7 = document.querySelector("#c001");
   var c8 = document.querySelector("#c000");
-}
-
-function simpRun(){
   elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
   for (let i = 0; i < elementary.states.length; i++){
     if (i==width/elementary.size/2){
@@ -202,10 +200,10 @@ function simpRun(){
     }
   }
   loop()
-
 }
 
 function randRun(){
+  y = 0;
   var c1 = document.querySelector("#c111");
   var c2 = document.querySelector("#c110");
   var c3 = document.querySelector("#c101");
@@ -245,6 +243,7 @@ function iterate(){
         elementary.states[i] = false;
       }
     }
+    y = 0;
   }
   redraw()
 }
