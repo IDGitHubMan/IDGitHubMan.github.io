@@ -1,0 +1,8 @@
+#controller{
+    display: flex;
+}
+
+.rule{
+    display: flex;
+    flex-direction: column;
+}
