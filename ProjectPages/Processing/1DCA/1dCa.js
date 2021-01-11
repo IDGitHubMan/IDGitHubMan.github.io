@@ -146,17 +146,41 @@ class OneDCellMachine{
       }
     }
     reset(c1,c2,c3,c4,c5,c6,c7,c8){
-      this.ruleset[0] = c1.isChecked;
-      this.ruleset[1] = c2.isChecked;
-      this.ruleset[2] = c3.isChecked;
-      this.ruleset[3] = c4.isChecked;
-      this.ruleset[4] = c5.isChecked;
-      this.ruleset[5] = c6.isChecked;
-      this.ruleset[6] = c7.isChecked;
-      this.ruleset[7] = c8.isChecked;
+      this.ruleset[0] = c1.checked;
+      this.ruleset[1] = c2.checked;
+      this.ruleset[2] = c3.checked;
+      this.ruleset[3] = c4.checked;
+      this.ruleset[4] = c5.checked;
+      this.ruleset[5] = c6.checked;
+      this.ruleset[6] = c7.checked;
+      this.ruleset[7] = c8.checked;
     }
-  }
+}
   
+
+
+
+var elementary;
+var y;
+
+function setup() {
+  createCanvas(800, 800);
+  elementary = new OneDCellMachine();
+  y = 0;
+
+}
+
+function draw() {
+
+  elementary.update(y);
+  y++
+  if (y*elementary.size>=height){
+    y = 0;
+    noLoop()
+  }
+}
+
+window.onload = function(){
   var c1 = document.querySelector("#c111");
   var c2 = document.querySelector("#c110");
   var c3 = document.querySelector("#c101");
@@ -165,26 +189,53 @@ class OneDCellMachine{
   var c6 = document.querySelector("#c010");
   var c7 = document.querySelector("#c001");
   var c8 = document.querySelector("#c000");
+}
 
-  var elementary;
-  var y;
-
-  function setup() {
-    createCanvas(800, 800);
-    elementary = new OneDCellMachine();
-    y = 0;
-  }
-  
-  function draw() {
-    elementary.update(y);
-    y++
-    if (y*elementary.size>=height){
-      y = 0;
-      noLoop()
+function simpRun(){
+  elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
+  for (let i = 0; i < elementary.states.length; i++){
+    if (i==width/elementary.size/2){
+      elementary.states[i] = true;
+    }
+    else{
+      elementary.states[i] = false;
     }
   }
+  loop()
 
-  function simpRun(){
+}
+
+function randRun(){
+  var c1 = document.querySelector("#c111");
+  var c2 = document.querySelector("#c110");
+  var c3 = document.querySelector("#c101");
+  var c4 = document.querySelector("#c100");
+  var c5 = document.querySelector("#c011");
+  var c6 = document.querySelector("#c010");
+  var c7 = document.querySelector("#c001");
+  var c8 = document.querySelector("#c000");
+  elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
+  for (let i = 0; i < elementary.states.length; i++){
+    if (i==width/elementary.size/2){
+      elementary.states[i] = true;
+    }
+    else{
+      elementary.states[i] = false;
+    }
+  }
+  for (let i = 0; i < elementary.states.length; i++){
+    let bool = int(random(2)*2-1)
+    if (bool==1){
+      elementary.states[i] = true;
+    }
+    else{
+      elementary.states[i] = false;
+    }
+  }
+}
+
+function iterate(){
+  if (y*elementary.size>=height){
     elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
     for (let i = 0; i < elementary.states.length; i++){
       if (i==width/elementary.size/2){
@@ -194,46 +245,11 @@ class OneDCellMachine{
         elementary.states[i] = false;
       }
     }
-    loop()
-
   }
+  redraw()
+}
 
-  function randRun(){
-    elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
-    for (let i = 0; i < elementary.states.length; i++){
-      if (i==width/elementary.size/2){
-        elementary.states[i] = true;
-      }
-      else{
-        elementary.states[i] = false;
-      }
-    }
-    for (let i = 0; i < elementary.states.length; i++){
-      let bool = int(random(2)*2-1)
-      if (bool==1){
-        elementary.states[i] = true;
-      }
-      else{
-        elementary.states[i] = false;
-      }
-    }
-  }
+function stop(){
+  noLoop()
+}
 
-  function stop(){
-    noLoop()
-  }
-
-  function step(){
-    if (y*elementary.size>=height){
-      elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
-      for (let i = 0; i < elementary.states.length; i++){
-        if (i==width/elementary.size/2){
-          elementary.states[i] = true;
-        }
-        else{
-          elementary.states[i] = false;
-        }
-      }
-    }
-    redraw()
-  }
