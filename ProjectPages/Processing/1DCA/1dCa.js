@@ -157,11 +157,20 @@ class OneDCellMachine{
     }
   }
   
+  var c1 = document.querySelector("#c111");
+  var c2 = document.querySelector("#c110");
+  var c3 = document.querySelector("#c101");
+  var c4 = document.querySelector("#c100");
+  var c5 = document.querySelector("#c011");
+  var c6 = document.querySelector("#c010");
+  var c7 = document.querySelector("#c001");
+  var c8 = document.querySelector("#c000");
+
   var elementary;
   var y;
+
   function setup() {
     createCanvas(800, 800);
-    parent("1DCAview");
     elementary = new OneDCellMachine();
     y = 0;
   }
@@ -176,6 +185,7 @@ class OneDCellMachine{
   }
 
   function simpRun(){
+    elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
     for (let i = 0; i < elementary.states.length; i++){
       if (i==width/elementary.size/2){
         elementary.states[i] = true;
@@ -189,6 +199,7 @@ class OneDCellMachine{
   }
 
   function randRun(){
+    elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
     for (let i = 0; i < elementary.states.length; i++){
       if (i==width/elementary.size/2){
         elementary.states[i] = true;
@@ -214,6 +225,7 @@ class OneDCellMachine{
 
   function step(){
     if (y*elementary.size>=height){
+      elementary.reset(c1,c2,c3,c4,c5,c6,c7,c8)
       for (let i = 0; i < elementary.states.length; i++){
         if (i==width/elementary.size/2){
           elementary.states[i] = true;
