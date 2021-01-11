@@ -162,6 +162,7 @@ class OneDCellMachine{
 
 var elementary;
 var y;
+var lastRuleSimp = true;
 
 function setup() {
   createCanvas(800, 800);
@@ -181,7 +182,9 @@ function draw() {
 }
 
 function simpRun(){
-  y = 0;
+  if (!lastRuleSimp){
+    y = 0;
+  }
   var c1 = document.querySelector("#c111");
   var c2 = document.querySelector("#c110");
   var c3 = document.querySelector("#c101");
@@ -200,10 +203,13 @@ function simpRun(){
     }
   }
   loop()
+  lastRuleSimp = true;
 }
 
 function randRun(){
-  y = 0;
+  if (lastRuleSimp){
+    y = 0;
+  }
   var c1 = document.querySelector("#c111");
   var c2 = document.querySelector("#c110");
   var c3 = document.querySelector("#c101");
@@ -231,6 +237,7 @@ function randRun(){
     }
   }
   loop()
+  lastRuleSimp = false;
 }
 
 function iterate(){
