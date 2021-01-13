@@ -162,7 +162,8 @@ var y;
 var lastRuleSimp = true;
 
 function setup() {
-  createCanvas(800, 800);
+  let canvas = createCanvas(800, 800);
+  canvas.parent("sketchView")
   elementary = new OneDCellMachine();
   y = 0;
 
