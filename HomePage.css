@@ -1,4 +1,4 @@
-h1,h2,a{
+h1,h2{
     color: rgb(10, 30, 216);
 }
 
@@ -37,9 +37,11 @@ p{
 }
 
 .navBar{
+    color: #f1f1f1;
+    border-radius: 10px;
     display: flex;
     justify-content: space-around;
-    background-color: white;
+    background-color: rgb(00, 140, 216);
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -62,6 +64,7 @@ p{
 .navButton{
     height: 20px;
     width: 1vw;
+    color: #f1f1f1;
 }
 
 .navButton:hover .navDropdown {display: block;}
@@ -75,6 +78,7 @@ p{
 
 .dropBtn{
     padding: 8px;
+    color: #f1f1f1;
 }
 
 .foot{
@@ -86,12 +90,8 @@ a{
     text-decoration: none;
 }
 
-a:visited{
-    color: rgb(10, 30, 216);
-}
-
 .activePage{
-    color: rgb(00, 140, 216);
+    color: rgb(194, 189, 189);
 }
 
 .overlayText{
