@@ -1,148 +1,149 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Isaiah Desrosiers</title>
-        <link rel="stylesheet" href="HomePage.css">
-        <meta name="author" content="Isaiah Desrosiers">
-        <meta name="description" content="The homepage for my Github Pages project.">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="jquery-3.5.1.min.js"></script>
-    </head>
-    
-    <body>
-        <div class="top">
-            <h1>Isaiah Desrosiers</h1>
+
+<head>
+    <title>Isaiah Desrosiers</title>
+    <link rel="stylesheet" href="HomePage.css">
+    <meta name="author" content="Isaiah Desrosiers">
+    <meta name="description" content="The homepage for my Github Pages project.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+    <div class="top">
+        <h1>Isaiah Desrosiers</h1>
+    </div>
+    <div class="navBar">
+        <div class="navButton">
+            <a class="dropBtn activePage">Home</a>
         </div>
-        <div class="navBar">
-            <div class="navButton">
-                <a class="dropBtn activePage">Home</a>
-            </div>
-            <div class="navButton">
-                <a class="dropBtn" href="https://IDGitHubMan.github.io/GeneralPages/ProcessingGeneral">Processing</a>
-                <div class="navDropdown">
-                    <a class="dropLink">Processing Rain</a>
-                    <a class="dropLink">Ecosystem</a>
-                    <a class="dropLink">Distribution</a>
-                </div>
-            </div>
-            <div class="navButton">
-                <a class="dropBtn" href="https://IDGitHubMan.github.io/GeneralPages/PythonGeneral.html">Python</a>
-                <div class="navDropdown">
-                    <a class="dropLink">Sound Experimentation</a>
-                    <a class="dropLink">Substitution Cipher Tool</a>
-                    <a class="dropLink">Math Tools</a>
-                </div>
-            </div>
-            <div class="navButton">
-                <a class="dropBtn">Music</a>
-                <div class="navDropdown">
-                    <a class="dropLink">Composition</a>
-                    <a class="dropLink">Garageband</a>
-                </div>
-            </div>
-            <div class="navButton">
-                <a class="dropBtn">Other</a>
-                <div class="navDropdown">
-                    <a class="dropLink">Desmos</a>
-                    <a class="dropLink">Homeward</a>
-                </div>
+        <div class="navButton">
+            <a class="dropBtn" href="https://IDGitHubMan.github.io/GeneralPages/ProcessingGeneral">Processing</a>
+            <div class="navDropdown">
+                <a class="dropLink">Processing Rain</a>
+                <a class="dropLink">Ecosystem</a>
+                <a class="dropLink">Distribution</a>
             </div>
         </div>
-        <div class="Head">
-            <h2>Hello World!</h2>
-            <p>I'm Isaiah Desrosiers, a versatile student in NYC. I built this website as an online portfolio of my work and
-                projects.</p>
-            <p>I have a wide breadth of experience in multiple different areas. While I am mostly a programmer, I also
-                dabble in music and other areas. I have a great love for all thiongs STEM, and love to learn.</p>
-        </div>
-        <div class="body">
-            <h2>Projects</h2>
-            <div class="displayRoll">
-                <div class="trio fade" id="t1">
-                    <div class="cellPreview" id="pySound">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Python Sound Experiments</h2>
-                        </div>
-                    </div>
-                    <div class="cellPreview" id="processingRain">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Processing Rain</h2>
-                        </div>
-                    </div>
-                    <div class="cellPreview" id="requiem">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Requiem for a Revenant</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="trio fade" id="t2">
-                    <div class="cellPreview" id="searchingTruth">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Searching for the Truth</h2>
-                        </div>
-                    </div>
-                    <div class="cellPreview" id="twoWhos">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">[2 Little Whos]</h2>
-                        </div>
-                    </div>
-                    <div class="cellPreview" id="unityProj">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Homeward</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="trio fade" id="t3">
-                    <div class="cellPreview" id="desmos">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Desmos Graphs</h2>
-                        </div>
-                    </div>
-                    <div class="cellPreview" id="polySequence">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Python Polygonate Sequence Plotter</h2>
-                        </div>
-                    </div>
-                    <div class="cellPreview" id="hailSequence">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Hailstone Sequences Plotter</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="trio fade" id="t4">
-                    <div class="cellPreview" id="Distribution">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Processing Random Graphs</h2>
-                        </div>
-                    </div>
-                    <div class="cellPreview" id="Enigma">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Enigma</h2>
-                        </div>
-                    </div>
-                    <div class="cellPreview" id="Betrayal">
-                        <div class="backgroundBuffer">
-                            <h2 class="overlayText">Betrayal</h2>
-                        </div>
-                    </div>
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                <script src="ShiftPanels.js"></script>
+        <div class="navButton">
+            <a class="dropBtn" href="https://IDGitHubMan.github.io/GeneralPages/PythonGeneral.html">Python</a>
+            <div class="navDropdown">
+                <a class="dropLink">Sound Experimentation</a>
+                <a class="dropLink">Substitution Cipher Tool</a>
+                <a class="dropLink">Math Tools</a>
             </div>
         </div>
-        <div class="foot">
-            <div class="contact">
-                <p>Isaiah Desrosiers</p>
-                <a href="mailto:idguy2021@gmail.com" target="blank">idguy2021@gmail.com</a>
-                <a href="https://www.ptechnyc.org/" target="blank">Pathways in Technology Early College High School</a>
-            </div>
-            <div class="links">
-                <p>Links</p>
-                <a href="https://musescore.com/user/27472987">Musescore Compositions</a>
-                <a href="https://soundcloud.com/droseman2021">Garageband Hodgepodges</a>
-                <a href="https://editor.p5js.org/IDDude/collections">P5JS Sketches</a>
+        <div class="navButton">
+            <a class="dropBtn">Music</a>
+            <div class="navDropdown">
+                <a class="dropLink">Composition</a>
+                <a class="dropLink">Garageband</a>
             </div>
         </div>
-    </body>
+        <div class="navButton">
+            <a class="dropBtn">Other</a>
+            <div class="navDropdown">
+                <a class="dropLink">Desmos</a>
+                <a class="dropLink">Homeward</a>
+            </div>
+        </div>
+    </div>
+    <div class="Head">
+        <h2>Hello World!</h2>
+        <p>I'm Isaiah Desrosiers, a versatile student in NYC. I built this website as an online portfolio of my work and projects.
+        </p>
+        <p>I have a wide breadth of experience in multiple different areas. While I am mostly a programmer, I also dabble in music and other areas. I have a great love for all thiongs STEM, and love to learn.</p>
+    </div>
+    <div class="body">
+        <h2>Projects</h2>
+        <div class="displayRoll">
+            <div class="trio fade" id="t1">
+                <div class="cellPreview" id="pySound">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Python Sound Experiments</h2>
+                    </div>
+                </div>
+                <div class="cellPreview" id="processingRain">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Processing Rain</h2>
+                    </div>
+                </div>
+                <div class="cellPreview" id="requiem">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Requiem for a Revenant</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="trio fade" id="t2">
+                <div class="cellPreview" id="searchingTruth">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Searching for the Truth</h2>
+                    </div>
+                </div>
+                <div class="cellPreview" id="twoWhos">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">[2 Little Whos]</h2>
+                    </div>
+                </div>
+                <div class="cellPreview" id="unityProj">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Homeward</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="trio fade" id="t3">
+                <div class="cellPreview" id="desmos">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Desmos Graphs</h2>
+                    </div>
+                </div>
+                <div class="cellPreview" id="polySequence">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Python Polygonate Sequence Plotter</h2>
+                    </div>
+                </div>
+                <div class="cellPreview" id="hailSequence">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Hailstone Sequences Plotter</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="trio fade" id="t4">
+                <div class="cellPreview" id="Distribution">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Processing Random Graphs</h2>
+                    </div>
+                </div>
+                <div class="cellPreview" id="Enigma">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Enigma</h2>
+                    </div>
+                </div>
+                <div class="cellPreview" id="Betrayal">
+                    <div class="backgroundBuffer">
+                        <h2 class="overlayText">Betrayal</h2>
+                    </div>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <script src="ShiftPanels.js"></script>
+        </div>
+    </div>
+    <div class="foot">
+        <div class="contact">
+            <p>Isaiah Desrosiers</p>
+            <a href="mailto:idguy2021@gmail.com" target="blank">idguy2021@gmail.com</a>
+            <a href="https://www.ptechnyc.org/" target="blank">Pathways in Technology Early College High School</a>
+        </div>
+        <div class="links">
+            <p>Links</p>
+            <a href="https://musescore.com/user/27472987">Musescore Compositions</a>
+            <a href="https://soundcloud.com/droseman2021">Garageband Hodgepodges</a>
+            <a href="https://editor.p5js.org/IDDude/collections">P5JS Sketches</a>
+        </div>
+    </div>
+</body>
+
 </html>
