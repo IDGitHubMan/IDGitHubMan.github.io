@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js" integrity="sha512-w1Bktzax55ZbjW5Mqjz8+mKz4KqRjEUU35Dpq/ath29yskKqIGwNIHiFNp03m/OiJWDXvdQ1/g6aV+l4PeVO7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <h1>IDDev</h1>
+    <script>
+        let c;
+        let colors = []
+        let noiseInc = 0.0;
+
+        function setup() {
+            c = createCanvas(windowWidth, 200);
+            cols = width / 10;
+            for (let i = 0; i < cols; i++) {
+                colors[i] = color(random(255), random(255), random(255));
+            }
+        }
+
+        function draw() {
+            noiseInc += 0.005;
+            background(0);
+            for (let i = 0; i < cols; i++) {
+                strokeWeight(7);
+                stroke(colors[i]);
+                line(i * 5, 0, i * 5(noise(i, noiseInc) * height));
+            }
+        }
+    </script>
+</body>
+
+</html>
