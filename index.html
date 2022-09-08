@@ -1,32 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <title>IDDev</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js" integrity="sha512-w1Bktzax55ZbjW5Mqjz8+mKz4KqRjEUU35Dpq/ath29yskKqIGwNIHiFNp03m/OiJWDXvdQ1/g6aV+l4PeVO7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-    <h1>IDDev</h1>
+    <style>
+        canvas {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1000;
+        }
+        
+        #title {
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+    </style>
     <script>
         let c;
+        let cols;
         let colors = []
         let noiseInc = 0.0;
 
         function setup() {
-            c = createCanvas(windowWidth, 800);
-            cols = width / 10;
+            c = createCanvas(windowWidth, windowHeight);
+            cols = width / 5;
             for (let i = 0; i < cols; i++) {
-                colors[i] = color(random(255), random(255), random(255));
+                colors[i] = color(random(64), random(128), random(128, 255));
             }
         }
 
         function draw() {
-            noiseInc += 0.005;
+            noiseInc += 0.0005;
             background(0);
             for (let i = 0; i < cols; i++) {
-                strokeWeight(7);
+                strokeWeight(3);
                 stroke(colors[i]);
-                line(i * 10, 0, i * 10, (noise(i, noiseInc) * height));
+                line(i * 5, 0, i * 5, (noise(i * 0.1, noiseInc) * 600));
+            }
+            fill(0);
+            stroke(0, 128, 255);
+            strokeWeight(5);
+            textAlign(CENTER, CENTER);
+            textSize(50);
+            text("IDDev", width / 2, 300);
+        }
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+            cols = width / 5;
+            for (let i = 0; i < cols; i++) {
+                if (colors[i] == undefined) {
+                    colors[i] = color(random(64), random(128), random(128, 255));
+                }
             }
         }
     </script>
