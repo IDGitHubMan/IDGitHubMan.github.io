@@ -8,6 +8,9 @@
 
 <body>
     <style>
+        body {
+            background-color: #000;
+        }
         canvas {
             display: block;
             position: absolute;
@@ -22,45 +25,54 @@
         }
     </style>
     <script>
-        let c;
-        let cols;
-        let colors = []
-        let noiseInc = 0.0;
+        const lineBG = new p5((sketch) => {
+            let  cols;
+            let colors = [];
+            let noiseInc = 0.0;
 
-        function setup() {
-            c = createCanvas(windowWidth, windowHeight);
-            cols = width / 5;
-            for (let i = 0; i < cols; i++) {
-                colors[i] = color(random(64), random(128), random(128, 255));
-            }
-        }
-
-        function draw() {
-            noiseInc += 0.0005;
-            background(0);
-            for (let i = 0; i < cols; i++) {
-                strokeWeight(3);
-                stroke(colors[i]);
-                line(i * 5, 0, i * 5, (noise(i * 0.1, noiseInc) * 600));
-            }
-            fill(0);
-            stroke(0, 128, 255);
-            strokeWeight(5);
-            textAlign(CENTER, CENTER);
-            textSize(50);
-            text("Isaiah Desrosiers", width / 2, 300);
-        }
-
-        function windowResized() {
-            resizeCanvas(windowWidth, windowHeight);
-            cols = width / 5;
-            for (let i = 0; i < cols; i++) {
-                if (colors[i] == undefined) {
-                    colors[i] = color(random(64), random(128), random(128, 255));
+            sketch.setup = () => {
+                let c = sketch.createCanvas(sketch.windowWidth,sketch.windowHeight);
+                c.parent("bgContainer");
+                c.position(0,0,"absolute");
+                c.style('z-index',-9999);
+                cols = sketch.width/5;
+                for (let i = 0; i < cols; i++){
+                    colors[i] = sketch.color(sketch.random(64),sketch.random(128),sketch.random(128,255));
                 }
             }
-        }
+
+            sketch.draw = () => {
+                box = sketch.select("#bgContainer");
+                box.size(sketch.width,sketch.height);
+                noiseInc += 0.0005;
+                sketch.background(0);
+                for (let i = 0; i < cols; i++){
+                    sketch.strokeWeight(3);
+                    sketch.stroke(colors[i]);
+                    sketch.line(i*5,0,i*5,sketch.noise(i*0.05,noiseInc)*600)
+                }
+                sketch.fill(0);
+                sketch.stroke(0, 128, 255);
+                sketch.strokeWeight(5);
+                sketch.textAlign(sketch.CENTER, sketch.CENTER);
+                sketch.textSize(50);
+                sketch.text("Isaiah Desrosiers", sketch.width / 2, 300);
+            }
+
+            sketch.windowResized = () => {
+                sketch.resizeCanvas(sketch.windowWidth,600);
+                cols = sketch.width / 5;
+                for (let i = 0; i < cols; i++) {
+                    if (colors[i] == undefined) {
+                        colors[i] = sketch.color(sketch.random(64), sketch.random(128), sketch.random(128, 255));
+                    }
+                }
+            }
+        })
     </script>
+    <div id="main">
+        <div id="bgContainer"></div>
+    </div>
 </body>
 
 </html>
