@@ -10,6 +10,9 @@
     <style>
         body {
             background-color: #000;
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            text-align: center;
         }
         canvas {
             display: block;
@@ -19,11 +22,21 @@
             z-index: -1000;
         }
         
-        #title {
-            color: white;
-            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        #tetrahedron {
+            height: 400px;
+            line-height: 400px;
         }
     </style>
+    <div id="main">
+        <div id="bgContainer"></div>
+        <div id="preSketch">
+            <h1>A Multi-Faceted Creative.</h1>
+            <p>I'm a person who is just stepping into adulthood and still trying to figure out where I want my life to really go, because I have many strengths and possible paths I could follow, and this site is meant to show those strengths and possibilities.</p>
+        </div>
+        <div id="tetrahedron">
+            <p>click</p>
+        </div>
+    </div>
     <script>
         const lineBG = new p5((sketch) => {
             let  cols;
@@ -31,10 +44,9 @@
             let noiseInc = 0.0;
 
             sketch.setup = () => {
-                let c = sketch.createCanvas(sketch.windowWidth,sketch.windowHeight);
+                let c = sketch.createCanvas(sketch.windowWidth,350);
                 c.parent("bgContainer");
                 c.position(0,0,"absolute");
-                c.style('z-index',-9999);
                 cols = sketch.width/5;
                 for (let i = 0; i < cols; i++){
                     colors[i] = sketch.color(sketch.random(64),sketch.random(128),sketch.random(128,255));
@@ -49,7 +61,7 @@
                 for (let i = 0; i < cols; i++){
                     sketch.strokeWeight(3);
                     sketch.stroke(colors[i]);
-                    sketch.line(i*5,0,i*5,sketch.noise(i*0.05,noiseInc)*600)
+                    sketch.line(i*5,0,i*5,sketch.noise(i*0.05,noiseInc)*275)
                 }
                 sketch.fill(0);
                 sketch.stroke(0, 128, 255);
@@ -60,7 +72,9 @@
             }
 
             sketch.windowResized = () => {
-                sketch.resizeCanvas(sketch.windowWidth,600);
+                sketch.resizeCanvas(sketch.windowWidth,350);
+                box = sketch.select("#bgContainer");
+                box.size(sketch.width,sketch.height);
                 cols = sketch.width / 5;
                 for (let i = 0; i < cols; i++) {
                     if (colors[i] == undefined) {
@@ -69,10 +83,62 @@
                 }
             }
         })
+
+        const tetrahedronSketch = new p5((sketch) => {
+            let r = 100;
+            let xRot = 0;
+            let yRot = 0;
+            sketch.setup = () => {
+                let c = sketch.createCanvas(sketch.windowWidth,400,sketch.WEBGL);
+                c.parent("tetrahedron");
+                c.position(0,-400,"relative");
+            }
+            sketch.draw = () => {
+                xRot += 1;
+                sketch.print(xRot);
+                if (xRot >= 360){
+                    xRot = 0;
+                }
+                sketch.angleMode(sketch.DEGREES)
+                sketch.rotateZ(90);
+                sketch.rotateX(xRot);
+                sketch.fill(120,50,200);
+                sketch.noStroke();
+                sketch.background(0);
+                sketch.beginShape();
+                sketch.vertex(r,r,r);
+                sketch.vertex(r,-r,-r);
+                sketch.vertex(-r,r,-r);
+                sketch.endShape();
+                sketch.fill(255);
+                sketch.beginShape();
+                sketch.vertex(r,r,r);
+                sketch.vertex(r,-r,-r);
+                sketch.vertex(-r,-r,r);
+                sketch.endShape();
+                sketch.fill(0,0,255);
+                sketch.beginShape();
+                sketch.vertex(-r,r,-r);
+                sketch.vertex(r,-r,-r);
+                sketch.vertex(-r,-r,r);
+                sketch.endShape();
+                sketch.fill(0,255,0);
+                sketch.beginShape();
+                sketch.vertex(r,r,r);
+                sketch.vertex(-r,r,-r);
+                sketch.vertex(-r,-r,r);
+                sketch.endShape();
+            }
+
+            sketch.windowResized = () => {
+                sketch.resizeCanvas(sketch.windowWidth,400);
+            }
+
+            sketch.mousePressed = () => {
+                sketch.print("CLICKED!")
+            }
+        })
     </script>
-    <div id="main">
-        <div id="bgContainer"></div>
-    </div>
 </body>
 
 </html>
