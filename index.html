@@ -73,7 +73,7 @@
                 for (let i = 0; i < cols; i++){
                     sketch.strokeWeight(3);
                     sketch.stroke(colors[i]);
-                    sketch.line(i*5,0,i*5,sketch.noise(i*0.05,noiseInc)*275)
+                    sketch.line(i*5,0,i*5,sketch.noise(i*0.05,noiseInc)*300)
                 }
                 sketch.fill(0);
                 sketch.stroke(0, 128, 255);
@@ -92,116 +92,6 @@
                     if (colors[i] == undefined) {
                         colors[i] = sketch.color(sketch.random(64), sketch.random(128), sketch.random(128, 255));
                     }
-                }
-            }
-        })
-
-        const tetrahedronSketch = new p5((sketch) => {
-            let r = 100;
-            let clicks = 0;
-            let animating = false;
-            let xRot = 0;
-            let yRot = 0;
-            let counter;
-            let prevXRot;
-            let prevYRot;
-            sketch.setup = () => {
-                let c = sketch.createCanvas(sketch.windowWidth,400,sketch.WEBGL);
-                c.parent("tetrahedron");
-                c.position(0,-400,"relative");
-            }
-            sketch.draw = () => {
-                sketch.print(xRot);
-                sketch.print(yRot);
-                if (xRot >= 360){
-                    xRot = 0;
-                }
-                if (clicks === 0){
-                    xRot += 1;
-                    sketch.angleMode(sketch.DEGREES)
-                    //sketch.rotateZ(90);
-                    sketch.rotateX(xRot);
-                    sketch.fill(120,50,200);
-                    sketch.noStroke();
-                    sketch.background(0);
-                    sketch.beginShape();
-                    sketch.vertex(r,r,r);
-                    sketch.vertex(r,-r,-r);
-                    sketch.vertex(-r,r,-r);
-                    sketch.endShape();
-                    sketch.fill(255);
-                    sketch.beginShape();
-                    sketch.vertex(r,r,r);
-                    sketch.vertex(r,-r,-r);
-                    sketch.vertex(-r,-r,r);
-                    sketch.endShape();
-                    sketch.fill(0,0,255);
-                    sketch.beginShape();
-                    sketch.vertex(-r,r,-r);
-                    sketch.vertex(r,-r,-r);
-                    sketch.vertex(-r,-r,r);
-                    sketch.endShape();
-                    sketch.fill(0,255,0);
-                    sketch.beginShape();
-                    sketch.vertex(r,r,r);
-                    sketch.vertex(-r,r,-r);
-                    sketch.vertex(-r,-r,r);
-                    sketch.endShape();
-                }
-                else{
-                    if (prevXRot === undefined){
-                        counter = 0;
-                        prevXRot = xRot;
-                        prevYRot = yRot;
-                    }
-                    else{
-                        if (counter < 50){
-                            counter ++;
-                        }
-                        xRot = sketch.map(counter,0,50,prevXRot,216);
-                        yRot = sketch.map(counter,0,50,prevYRot,225);
-                    }
-                    
-                    sketch.angleMode(sketch.DEGREES)
-                    //sketch.rotateZ(90);
-                    sketch.rotateX(xRot);
-                    sketch.rotateY(yRot);
-                    sketch.fill(120,50,200);
-                    sketch.noStroke();
-                    sketch.background(0);
-                    sketch.beginShape();
-                    sketch.vertex(r,r,r);
-                    sketch.vertex(r,-r,-r);
-                    sketch.vertex(-r,r,-r);
-                    sketch.endShape();
-                    sketch.fill(255);
-                    sketch.beginShape();
-                    sketch.vertex(r,r,r);
-                    sketch.vertex(r,-r,-r);
-                    sketch.vertex(-r,-r,r);
-                    sketch.endShape();
-                    sketch.fill(0,0,255);
-                    sketch.beginShape();
-                    sketch.vertex(-r,r,-r);
-                    sketch.vertex(r,-r,-r);
-                    sketch.vertex(-r,-r,r);
-                    sketch.endShape();
-                    sketch.fill(0,255,0);
-                    sketch.beginShape();
-                    sketch.vertex(r,r,r);
-                    sketch.vertex(-r,r,-r);
-                    sketch.vertex(-r,-r,r);
-                    sketch.endShape();
-                }
-            }
-
-            sketch.windowResized = () => {
-                sketch.resizeCanvas(sketch.windowWidth,400);
-            }
-
-            sketch.mousePressed = () => {
-                if (!animating){
-                    clicks += 1;
                 }
             }
         })
