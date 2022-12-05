@@ -3,7 +3,9 @@
 
 <head>
     <title>IDDev</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js" integrity="sha512-w1Bktzax55ZbjW5Mqjz8+mKz4KqRjEUU35Dpq/ath29yskKqIGwNIHiFNp03m/OiJWDXvdQ1/g6aV+l4PeVO7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"
+        integrity="sha512-w1Bktzax55ZbjW5Mqjz8+mKz4KqRjEUU35Dpq/ath29yskKqIGwNIHiFNp03m/OiJWDXvdQ1/g6aV+l4PeVO7Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -14,6 +16,7 @@
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             text-align: center;
         }
+
         canvas {
             display: block;
             position: absolute;
@@ -21,56 +24,67 @@
             top: 0;
             z-index: -1000;
         }
-        
+
         #tetrahedron {
             height: 400px;
             line-height: 400px;
+        }
+
+        .tabCont {
+            display: none;
+            position: relative;
+            
         }
     </style>
     <div id="main">
         <div id="bgContainer"></div>
         <div id="preSketch">
             <h1>A Multi-Faceted Creative.</h1>
-            <p>I'm a person who is just stepping into adulthood and still trying to figure out where I want my life to really go, because I have many strengths and possible paths I could follow, and this site is meant to show those strengths and possibilities.</p>
+            <p>I'm a person who is just stepping into adulthood and still trying to figure out where I want my life to
+                really go, because I have many strengths and possible paths I could follow. This site is meant to show
+                those strengths and possibilities.</p>
         </div>
-        <div id="developer">
-            <h2>DEVELOPER</h2>
-            <p>With knowledge in HTML, CSS, JS, Java for Android Development, and Processing, I am bringing many projects and ideas to fruition, whether they are apps or websites.</p>
-        </div>
-        <div id="designer">
-            <h2>DESIGNER</h2>
-            <p>I'm creating both static and motion graphics to share and reprsent ideas.</p>
-        </div>
-        <div id="musician">
-            <h2>MUSICIAN</h2>
-            <p>While I'm not yet a master of any instrument, I have created several compositions and tunes.</p>
+        <div id="tabSelector">
+            <div id="developer" class="tabCont">
+                <h2>DEVELOPER</h2>
+                <p>With knowledge in HTML, CSS, JS, Java for Android Development, and Processing, I am bringing many
+                    projects and ideas to fruition, whether they are apps or websites.</p>
+            </div>
+            <div id="designer" class="tabCont">
+                <h2>DESIGNER</h2>
+                <p>I'm creating both static and motion graphics to share and reprsent ideas.</p>
+            </div>
+            <div id="musician" class="tabCont">
+                <h2>MUSICIAN</h2>
+                <p>While I'm not yet a master of any instrument, I have created several compositions and tunes.</p>
+            </div>
         </div>
     </div>
     <script>
         const lineBG = new p5((sketch) => {
-            let  cols;
+            let cols;
             let colors = [];
             let noiseInc = 0.0;
 
             sketch.setup = () => {
-                let c = sketch.createCanvas(sketch.windowWidth,350);
+                let c = sketch.createCanvas(sketch.windowWidth, 350);
                 c.parent("bgContainer");
-                c.position(0,0,"absolute");
-                cols = sketch.width/5;
-                for (let i = 0; i < cols; i++){
-                    colors[i] = sketch.color(sketch.random(64),sketch.random(128),sketch.random(128,255));
+                c.position(0, 0, "absolute");
+                cols = sketch.width / 5;
+                for (let i = 0; i < cols; i++) {
+                    colors[i] = sketch.color(sketch.random(64), sketch.random(128), sketch.random(128, 255));
                 }
             }
 
             sketch.draw = () => {
                 box = sketch.select("#bgContainer");
-                box.size(sketch.width,sketch.height);
+                box.size(sketch.width, sketch.height);
                 noiseInc += 0.0005;
                 sketch.background(0);
-                for (let i = 0; i < cols; i++){
+                for (let i = 0; i < cols; i++) {
                     sketch.strokeWeight(3);
                     sketch.stroke(colors[i]);
-                    sketch.line(i*5,0,i*5,sketch.noise(i*0.05,noiseInc)*300)
+                    sketch.line(i * 5, 0, i * 5, sketch.noise(i * 0.05, noiseInc) * 300)
                 }
                 sketch.fill(0);
                 sketch.stroke(0, 128, 255);
@@ -81,15 +95,51 @@
             }
 
             sketch.windowResized = () => {
-                sketch.resizeCanvas(sketch.windowWidth,350);
+                sketch.resizeCanvas(sketch.windowWidth, 350);
                 box = sketch.select("#bgContainer");
-                box.size(sketch.width,sketch.height);
+                box.size(sketch.width, sketch.height);
                 cols = sketch.width / 5;
                 for (let i = 0; i < cols; i++) {
                     if (colors[i] == undefined) {
                         colors[i] = sketch.color(sketch.random(64), sketch.random(128), sketch.random(128, 255));
                     }
                 }
+            }
+        })
+
+        const mobile = new p5((sketch) => {
+            let tabs;
+            sketch.setup = () => {
+                let c = sketch.createCanvas(sketch.windowWidth, 200);
+                c.parent("tabSelector");
+                c.position(0, 0, "relative");
+                tabs = sketch.selectAll(".tabCont");
+            }
+            sketch.draw = () => {
+                sketch.background(0);
+                let translation = sketch.map(sketch.mouseX, 0, sketch.width, sketch.width * (tabs.length - 1),0 );
+                sketch.translate(-translation, 0);
+                box = sketch.select("#tabSelector");
+                box.size(sketch.width, sketch.height);
+                for (let i = 0; i < tabs.length; i++) {
+                    let interval = sketch.map(i, 0, tabs.length, 1, 0);
+                    let boxFill = sketch.lerpColor(sketch.color(0), sketch.color(0, 128, 255), interval);
+                    let textFill = sketch.lerpColor(sketch.color(0), sketch.color(255), 1 - interval);
+                    sketch.fill(boxFill);
+                    sketch.rect(i * sketch.width, 0, sketch.width, sketch.height);
+                    sketch.fill(255);
+                    sketch.textAlign(sketch.CENTER, sketch.CENTER);
+                }
+                for (let i = 0; i < tabs.length; i++) {
+                    tabs[i].hide();
+                }
+                tabs[Math.round(translation / sketch.width)].position(0,sketch.height/2,"relative");
+                tabs[Math.round(translation / sketch.width)].show();
+            }
+            sketch.windowResized = () => {
+                sketch.resizeCanvas(sketch.windowWidth, 200);
+                box = sketch.select("#tabSelector");
+                box.size(sketch.width, sketch.height);
             }
         })
     </script>
