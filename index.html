@@ -10,6 +10,11 @@
 
 <body>
     <style>
+        main{
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
         body {
             background-color: #000;
             color: white;
@@ -35,8 +40,14 @@
             position: relative;
             
         }
+        #tabSelector{
+            border-radius: 100px;
+        }
+        #preSketch{
+            width: 100%;
+        }
     </style>
-    <div id="main">
+    <main>
         <div id="bgContainer"></div>
         <div id="preSketch">
             <h1>A Multi-Faceted Creative.</h1>
@@ -59,14 +70,15 @@
                 <p>While I'm not yet a master of any instrument, I have created several compositions and tunes.</p>
             </div>
         </div>
-    </div>
+    </main>
     <script>
         const lineBG = new p5((sketch) => {
             let cols;
             let colors = [];
             let noiseInc = 0.0;
-
+            let main;
             sketch.setup = () => {
+                main = sketch.select("main");
                 let c = sketch.createCanvas(sketch.windowWidth, 350);
                 c.parent("bgContainer");
                 c.position(0, 0, "absolute");
@@ -115,8 +127,10 @@
             let change = 0;
             let animateToDefined = false;
             let c;
+            let main;
             sketch.setup = () => {
-                c = sketch.createCanvas(sketch.windowWidth, 200);
+                main = sketch.select("main");
+                c = sketch.createCanvas(main.width, 200);
                 c.parent("tabSelector");
                 c.position(0, 0, "relative");
                 tabs = sketch.selectAll(".tabCont");
@@ -153,7 +167,7 @@
                 tabs[Math.round(trans / sketch.width)].show();
             }
             sketch.windowResized = () => {
-                sketch.resizeCanvas(sketch.windowWidth, 200);
+                sketch.resizeCanvas(main.width, 200);
                 box = sketch.select("#tabSelector");
                 box.size(sketch.width, sketch.height);
             }
