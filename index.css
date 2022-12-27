@@ -1,0 +1,36 @@
+main{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+body {
+    background-color: #000;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align: center;
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1000;
+}
+
+#tetrahedron {
+    height: 400px;
+    line-height: 400px;
+}
+
+.tabCont {
+    display: none;
+    position: relative;
+    
+}
+#tabSelector{
+    border-radius: 100px;
+}
+#preSketch{
+    width: 100%;
+}
