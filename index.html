@@ -37,14 +37,11 @@
 
         .tabCont {
             display: none;
-            width: 90%;
+            position: relative;
+            
         }
         #tabSelector{
-            position: relative;
-            top: 0;
-            left: 0;
-            justify-content: center;
-            align-items: center;
+            border-radius: 100px;
         }
         #preSketch{
             width: 100%;
@@ -63,14 +60,6 @@
                 <h2>DEVELOPER</h2>
                 <p>With knowledge in HTML, CSS, JS, Java for Android Development, and Processing, I am bringing many
                     projects and ideas to fruition, whether they are apps or websites.</p>
-                    <h3>My Projects</h3>
-                    <div class="gallery">
-                        <a>
-                            <div class="galleryItem">
-                                <h4 class="title">Genera</h4>
-                            </div>
-                        </a>
-                    </div>
             </div>
             <div id="designer" class="tabCont">
                 <h2>DESIGNER</h2>
@@ -139,13 +128,11 @@
             let animateToDefined = false;
             let c;
             let main;
-            let container;
-            let lastIndex = 0;
             sketch.setup = () => {
                 main = sketch.select("main");
-                container = sketch.select("#tabSelector");
                 c = sketch.createCanvas(main.width, 200);
-                c.parent("#tabSelector");
+                c.parent("tabSelector");
+                c.position(0, 0, "relative");
                 tabs = sketch.selectAll(".tabCont");
             }
             sketch.draw = () => {
@@ -162,26 +149,27 @@
                 }
                 sketch.background(0);
                 sketch.translate(-trans, 0);
+                box = sketch.select("#tabSelector");
+                box.size(sketch.width, sketch.height);
                 for (let i = 0; i < tabs.length; i++) {
                     let interval = sketch.map(i, 0, tabs.length, 1, 0);
-                    let boxFill = sketch.color(0,128,255) //sketch.lerpColor(sketch.color(0), sketch.color(0, 128, 255), interval);
+                    let boxFill = sketch.lerpColor(sketch.color(0), sketch.color(0, 128, 255), interval);
+                    let textFill = sketch.lerpColor(sketch.color(0), sketch.color(255), 1 - interval);
                     sketch.fill(boxFill);
                     sketch.rect(i * sketch.width, 0, sketch.width, sketch.height);
                     sketch.fill(255);
                     sketch.textAlign(sketch.CENTER, sketch.CENTER);
                 }
-                tabs[lastIndex].show();
-                if (Math.round(trans / sketch.width) != lastIndex){
-                    for (let i = 0; i < tabs.length; i++) {
-                        tabs[i].hide();
-                    }
-                    //tabs[Math.round(trans / sketch.width)].size(0.7*sketch.width,sketch.AUTO);
-                    lastIndex = Math.round(trans / sketch.width);
-                    sketch.resizeCanvas(main.width, container.size()["height"]-sketch.height);
+                for (let i = 0; i < tabs.length; i++) {
+                    tabs[i].hide();
                 }
+                tabs[Math.round(trans / sketch.width)].position(0,sketch.height/2,"relative");
+                tabs[Math.round(trans / sketch.width)].show();
             }
             sketch.windowResized = () => {
-                sketch.resizeCanvas(main.size()["width"], sketch.height);
+                sketch.resizeCanvas(main.width, 200);
+                box = sketch.select("#tabSelector");
+                box.size(sketch.width, sketch.height);
             }
 
             sketch.mousePressed = () => {
@@ -189,11 +177,12 @@
             }
 
             sketch.mouseDragged = () => {
+                translation = trans;
+                change = sketch.pmouseX - sketch.mouseX;
+                sketch.print(change);
+                translation += change;
+                trans = sketch.constrain(translation,0,sketch.width*(tabs.length-1));
                 if (c.mouseOver){
-                    translation = trans;
-                    change = sketch.pmouseX - sketch.mouseX;
-                    translation += change;
-                    trans = sketch.constrain(translation,0,sketch.width*(tabs.length-1));
                     return false;
                 }
                 animateToDefined = false;
