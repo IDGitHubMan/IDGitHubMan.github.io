@@ -75,45 +75,30 @@ const mobile = new p5((sketch) => {
                 trans = sketch.width * sketch.round(trans/sketch.width);
             }
         }
-        sketch.background(0);
-        sketch.translate(-trans, 0);
+        //sketch.background(0);
         box = sketch.select("#tabSelector");
         box.size(sketch.width, sketch.height);
-        for (let i = 0; i < tabs.length; i++) {
-            let interval = sketch.map(i, 0, tabs.length, 1, 0);
-            let boxFill = sketch.lerpColor(sketch.color(0), sketch.color(0, 128, 255), interval);
-            let textFill = sketch.lerpColor(sketch.color(0), sketch.color(255), 1 - interval);
-            sketch.fill(boxFill);
-            sketch.rect(i * sketch.width, 0, sketch.width, sketch.height);
-            sketch.fill(255);
-            sketch.textAlign(sketch.CENTER, sketch.CENTER);
-        }
+        sketch.translate(-trans, 0);
         for (let i = 0; i < tabs.length; i++) {
             tabs[i].hide();
         }
         tabs[Math.round(trans / sketch.width)].position(0,sketch.height/2,"relative");
         tabs[Math.round(trans / sketch.width)].show();
+        sketch.resizeCanvas(main.size()["width"], box.size()["height"]);
     }
     sketch.windowResized = () => {
-        sketch.resizeCanvas(main.width, 200);
-        box = sketch.select("#tabSelector");
-        box.size(sketch.width, sketch.height);
-    }
-
-    sketch.mousePressed = () => {
-        startClick = sketch.mouseX;
+        sketch.resizeCanvas(main.size()["width"], box.size()["height"]);
     }
 
     sketch.mouseDragged = () => {
         translation = trans;
         change = sketch.pmouseX - sketch.mouseX;
-        sketch.print(change);
         translation += change;
         trans = sketch.constrain(translation,0,sketch.width*(tabs.length-1));
-        if (c.mouseOver){
+        animateToDefined = false;
+        if (sketch.mouseX > 0 && sketch.mouseX < sketch.width && sketch.mouseY > 0 && sketch.mouseY < sketch.height){
             return false;
         }
-        animateToDefined = false;
     }
 
     sketch.mouseReleased = () =>{

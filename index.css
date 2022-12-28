@@ -29,8 +29,13 @@ canvas {
     
 }
 #tabSelector{
-    border-radius: 100px;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
 }
 #preSketch{
     width: 100%;
+}
+.tabHold{
+    display: block;
 }
