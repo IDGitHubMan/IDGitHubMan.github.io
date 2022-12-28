@@ -1,8 +1,9 @@
-main{
+main {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
 }
+
 body {
     background-color: #000;
     color: white;
@@ -26,16 +27,19 @@ canvas {
 .tabCont {
     display: none;
     position: relative;
-    
+
 }
-#tabSelector{
+
+#tabSelector {
     align-items: center;
     justify-content: center;
     height: 200px;
 }
-#preSketch{
+
+#preSketch {
     width: 100%;
 }
-.tabHold{
+
+.tabHold {
     display: block;
 }

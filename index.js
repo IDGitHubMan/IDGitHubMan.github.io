@@ -64,15 +64,15 @@ const mobile = new p5((sketch) => {
         tabs = sketch.selectAll(".tabCont");
     }
     sketch.draw = () => {
-        if (animateToDefined && !sketch.mouseIsPressed){
-            if (trans > sketch.width * sketch.round(trans/sketch.width)+5){
+        if (animateToDefined && !sketch.mouseIsPressed) {
+            if (trans > sketch.width * sketch.round(trans / sketch.width) + 5) {
                 trans -= 5;
             }
-            else if (trans < sketch.width * sketch.round(trans/sketch.width)-5){
+            else if (trans < sketch.width * sketch.round(trans / sketch.width) - 5) {
                 trans += 5;
             }
-            else{
-                trans = sketch.width * sketch.round(trans/sketch.width);
+            else {
+                trans = sketch.width * sketch.round(trans / sketch.width);
             }
         }
         //sketch.background(0);
@@ -82,7 +82,7 @@ const mobile = new p5((sketch) => {
         for (let i = 0; i < tabs.length; i++) {
             tabs[i].hide();
         }
-        tabs[Math.round(trans / sketch.width)].position(0,sketch.height/2,"relative");
+        tabs[Math.round(trans / sketch.width)].position(0, sketch.height / 2, "relative");
         tabs[Math.round(trans / sketch.width)].show();
         sketch.resizeCanvas(main.size()["width"], box.size()["height"]);
     }
@@ -94,14 +94,14 @@ const mobile = new p5((sketch) => {
         translation = trans;
         change = sketch.pmouseX - sketch.mouseX;
         translation += change;
-        trans = sketch.constrain(translation,0,sketch.width*(tabs.length-1));
+        trans = sketch.constrain(translation, 0, sketch.width * (tabs.length - 1));
         animateToDefined = false;
-        if (sketch.mouseX > 0 && sketch.mouseX < sketch.width && sketch.mouseY > 0 && sketch.mouseY < sketch.height){
+        if (sketch.mouseX > 0 && sketch.mouseX < sketch.width && sketch.mouseY > 0 && sketch.mouseY < sketch.height) {
             return false;
         }
     }
 
-    sketch.mouseReleased = () =>{
+    sketch.mouseReleased = () => {
         animateToDefined = true;
     }
 })
