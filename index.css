@@ -34,6 +34,7 @@ canvas {
     grid-template-columns: repeat(2, 1fr);
 }
 #tabSelector {
+    width: 100%;
     align-items: center;
     justify-content: center;
     height: 200px;

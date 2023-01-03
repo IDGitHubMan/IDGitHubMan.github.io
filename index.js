@@ -16,7 +16,7 @@ const lineBG = new p5((sketch) => {
 
     sketch.draw = () => {
         box = sketch.select("#bgContainer");
-        box.size(sketch.width, sketch.height);
+        box.size(box.size()["width"] - sketch.width, sketch.height);
         noiseInc += 0.0005;
         sketch.background(0);
         for (let i = 0; i < cols; i++) {
@@ -58,45 +58,38 @@ const mobile = new p5((sketch) => {
     sketch.setup = () => {
         main = sketch.select("main");
         box = sketch.select("#tabSelector");
-        c = sketch.createCanvas(main.width, 200);
-        c.parent("#tabSelector");
-        c.position(0, 0, "relative");
         tabs = sketch.selectAll(".tabCont");
     }
     sketch.draw = () => {
         if (animateToDefined && !sketch.mouseIsPressed) {
-            if (trans > sketch.width * sketch.round(trans / sketch.width) + 5) {
+            if (trans > main.size()["width"] * sketch.round(trans / main.size()["width"]) + 5) {
                 trans -= 5;
             }
-            else if (trans < sketch.width * sketch.round(trans / sketch.width) - 5) {
+            else if (trans < main.size()["width"] * sketch.round(trans / main.size()["width"]) - 5) {
                 trans += 5;
             }
             else {
-                trans = sketch.width * sketch.round(trans / sketch.width);
+                trans = main.size()["width"] * sketch.round(trans / main.size()["width"]);
             }
         }
         //sketch.background(0);
         box = sketch.select("#tabSelector");
-        box.size(sketch.width, sketch.height);
+        box.size(main.size()["width"], sketch.height);
         sketch.translate(-trans, 0);
         for (let i = 0; i < tabs.length; i++) {
             tabs[i].hide();
         }
-        tabs[Math.round(trans / sketch.width)].position(0, sketch.height / 2, "relative");
-        tabs[Math.round(trans / sketch.width)].show();
-        sketch.resizeCanvas(main.size()["width"], box.size()["height"]);
-    }
-    sketch.windowResized = () => {
-        sketch.resizeCanvas(main.size()["width"], box.size()["height"]);
+        tabs[Math.round(trans / main.size()["width"])].position(0, sketch.height / 2, "relative");
+        tabs[Math.round(trans / main.size()["width"])].show();
     }
 
     sketch.mouseDragged = () => {
         translation = trans;
         change = sketch.pmouseX - sketch.mouseX;
         translation += change;
-        trans = sketch.constrain(translation, 0, sketch.width * (tabs.length - 1));
+        trans = sketch.constrain(translation, 0, main.size()["width"] * (tabs.length - 1));
         animateToDefined = false;
-        if (sketch.mouseX > 0 && sketch.mouseX < sketch.width && sketch.mouseY > 0 && sketch.mouseY < sketch.height) {
+        if (sketch.mouseX > 0 && sketch.mouseX < main.size()["width"] && sketch.mouseY > 0 && sketch.mouseY < sketch.height) {
             return false;
         }
     }
